@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Los caballitos dl "B"</title>
+
+</head>
+
+<style>
+
+#container {
+
+
+
+    width: 1000px;
+
+    height: 50px;
+
+    position: relative;
+
+    background: gray 
+
+}
+
+#animate {
+
+
+
+     width: 66px;
+
+     height: 50px;
+
+     position: relative;
+
+     background-image: url(caballo-21.gif);
+
+}
+
+#container1 {
+
+
+
+     width: 66px;
+
+     height: 50px;
+
+     position: absolute;
+
+     background-image: url(caballo-21.gif);
+
+
+
+}
+
+
+
+</style>
+
+<body>
+
+    <h1>Bienvenido a las carreras de Caballos</h1>
+
+    <input type="button" value="arre!"id="btnjugar"onclick="myMove()">
+
+    <div id ="container">
+
+        <div id="animate"></div>
+
+    </div>
+
+
+    
+    <input type="button" value="arre!" id="btnjugador1" onclick="myMove1()">
+
+
+
+
+     <div id ="container1">
+    
+        <div id ="animate1"></div>
+    
+    </div>
+
+
+    
+    <input type="button" value="Ganador" id="mostrarGanador">
+
+    
+
+     
+
+     <!--<p><button onclick="myMove()">Click Me</button></p>-->
+
+
+
+</body>
+
+<script src="js/caballos.js"></script>
+
+<script>
+
+
+
+//Creo jugador estudiante
+
+var caballo = new Caballo ("Pegasus", "Negro Quiteño");
+
+
+
+//Creo jugador robótico
+
+var robot = new Caballo ("Tiro al blanco", "robot");
+
+
+
+//Jugar
+
+document.getElementById("btnjugar")
+
+.addEventListener("click",function () {
+
+    caballo.avanzar()
+
+    return myMove()
+});
+
+document.getEvenListener("click", function(){
+
+    robot.avanzar();
+
+});
+
+
+document.getElementById("mostrarGanador")
+
+addEventListener("dbllick",function(){
+
+    if(caballo.totalRecorrido()>robot.totalRecorrido()){
+
+        console.log(caballo.nombre+ "Eres el Ganador");
+    
+    }else{
+       
+        console.log(robot.nombre+"Eres el Ganador");
+
+        console.log("_____________________");
+        
+        console.log("resultado");
+
+        console.log(caballo.nombrre+"recorrido"+caballo.totalRecorrido ());
+
+        console.log(robot.nombre+"recorrido"+robot.totalRecorrido());
+    }
+
+});
+
+
+//Se muestra el ganador
+
+function myMove(){
+
+    var elem = document.getElementById("animenme");
+
+    var pos = 0;
+
+    var id = setIntervail(frame,25);
+
+    function frame(){
+
+        if(pos == 1100){
+
+            clearInterval(id);
+
+        }else{
+
+            pos++;
+
+            //elem.style.top = pos + "px";
+
+            elem.style.left = pos + "px";
+
+        }
+
+    }
+}
+
+
+
+function myMove1(){
+
+    var elem = document.getElementById("animate1");
+
+    var pos = 0;
+
+    var id = setInterval(frame,25);
+
+    
+    
+    function frame() {
+    
+        if (pos == 1100) {
+    
+            clearInterval (id);
+    
+        }else{
+    
+            pos++;
+    
+            //elem.style.top = pos + "px";
+    
+            elem.style.left = pos + "px";
+    
+        }
+    
+    }
+}
+
+
+</script>
+
+</html>
+
+
+
+
+
+
+
